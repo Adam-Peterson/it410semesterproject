@@ -26,8 +26,9 @@
 
 # Define Commands
 
-  ## Account Commands
 <ul>
+  
+   ## Account Commands
   <li>Create an account</li>
   <li>Delete an account</li>
   <li>Update account password</li>
