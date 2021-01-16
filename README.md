@@ -1,6 +1,3 @@
-# it410semesterproject
-Budget web application created for IT410 Semester Project
-
 # Project Objective
 Many people express a desire to spend less and save money, but are unsure of how to proceed. The goal of this project is to create a web application that allows users to set custom categories of expenses. Examples could be items such as:
 <ol>
