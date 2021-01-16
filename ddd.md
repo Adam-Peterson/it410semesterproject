@@ -106,14 +106,19 @@
       <td>Automatically generated, immutable, unique identifier.</td>
     </tr>
     <tr>
-      <td>username</td>
-      <td>text</td>
-      <td>User's chosen display name.</td>
+      <td>account id</td>
+      <td>UUID</td>
+      <td>Account ID that category belongs to</td>
     </tr>
     <tr>
-      <td>password</td>
-      <td>encrypted text</td>
-      <td>The user's password, stored in a hashed format.</td>
+      <td>name</td>
+      <td>text</td>
+      <td>Name of the category (ex. Groceries)</td>
+    </tr>
+    <tr>
+      <td>amount</td>
+      <td>decimal</td>
+      <td>Goal for money to be spent in this category per month</td>
     </tr>
   </tbody>
   </table>
@@ -134,14 +139,24 @@
       <td>Automatically generated, immutable, unique identifier.</td>
     </tr>
     <tr>
-      <td>username</td>
-      <td>text</td>
-      <td>User's chosen display name.</td>
+      <td>task id</td>
+      <td>UUID</td>
+      <td>Task ID that this belongs to</td>
     </tr>
     <tr>
-      <td>password</td>
-      <td>encrypted text</td>
-      <td>The user's password, stored in a hashed format.</td>
+      <td>name</td>
+      <td>text</td>
+      <td>Name of the transaction</td>
+    </tr>
+    <tr>
+      <td>Date</td>
+      <td>Date</td>
+      <td>Date of the transaction</td>
+    </tr>
+    <tr>
+      <td>amount</td>
+      <td>decimal</td>
+      <td>Dollar amount of the transaction</td>
     </tr>
   </tbody>
   </table>
