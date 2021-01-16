@@ -42,8 +42,7 @@
 
 # Define Entities
 <ul>
-  <li>Account</li>
-  <li>Category</li>
+<table><thead><tr><th>Property</th><th>Type</th><th>Description</th></tr></thead><tbody><tr><td>id</td><td>UUID</td><td>Automatically generated, immutable, unique identifier.</td></tr><tr><td>username</td><td>text</td><td>The user's chosen display name.</td></tr><tr><td>password</td><td>encrypted text</td><td>The user's password.</td></tr></tbody></table>  <li>Category</li>
   <li>Transaction</li>
 </ul>
 
