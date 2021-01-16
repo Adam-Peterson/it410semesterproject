@@ -1,15 +1,22 @@
 # Define Events
 <ul>
+  ## Account Events
   <li>account created</li>
   <li>account updated</li>
   <li>account deactivated</li>
   <li>account deleted</li>
   <li>account password reset</li>
+  
+  ## Session Events
   <li>session created</li>
   <li>session deleted</li>
+  
+  ## Budget Events
   <li>budget category created</li>
   <li>budget category updated</li>
   <li>budget category deleted</li>
+  
+  ## Transaction Events
   <li>transaction item created</li>
   <li>transaction item updated</li>
   <li>transaction item deleted</li>
@@ -17,26 +24,35 @@
 
 # Define Commands
 <ul>
+  ## Account Commands
   <li>Create an account</li>
   <li>Delete an account</li>
   <li>Update account password</li>
   <li>Validate password</li>
+  
+  ## Category Commands
   <li>Create budget category</li>
   <li>Set budget category dollar goal</li>
   <li>Rename budget category</li>
   <li>Update budget category dollar goal</li>
-  <li>Create transaction</li>
-  <li>Assign transaction to cateory</li>
-  <li>Reassign transaction to different cateogry</li>
-  <li>Delete transaction</li>
   <li>Delete category
     <ul>
       <li>Deleting a category will trigger delete transaction for all transactions in the category</li>
     </ul>
-   </li>
-  <li>Check balance remaining</li>
-  <li>View Transactions</li>
+  </li>
   <li>View Category</li>
+
+  
+  ## Transaction Commands
+  <li>Create transaction</li>
+  <li>Assign transaction to cateory</li>
+  <li>Reassign transaction to different cateogry</li>
+  <li>Delete transaction</li>
+    <li>View Transactions</li>
+    
+  ## Miscellaneous Commands
+
+  <li>Check balance remaining</li>
 </ul>
 
 
