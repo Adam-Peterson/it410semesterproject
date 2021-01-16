@@ -1,7 +1,7 @@
 # Define Events
-  ## Account Events
 
 <ul>
+  ## Account Events
   <li>account created</li>
   <li>account updated</li>
   <li>account deactivated</li>
