@@ -1,10 +1,10 @@
 # Project Objective
 Many people express a desire to spend less and save money, but are unsure of how to proceed. The goal of this project is to create a web application that allows users to set custom categories of expenses. Examples could be items such as:
-<ol>
+<ul>
   <li>Groceries</li>
   <li>Eating Out</li>
   <li>Gas</li>
-</ol>
+</ul>
 
 Once these users have created categories, they can set a dollar amount that they want to spend for the month.
 
