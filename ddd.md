@@ -1,6 +1,7 @@
 # Define Events
-<ul>
   ## Account Events
+
+<ul>
   <li>account created</li>
   <li>account updated</li>
   <li>account deactivated</li>
@@ -23,8 +24,9 @@
 </ul>
 
 # Define Commands
-<ul>
   ## Account Commands
+
+<ul>
   <li>Create an account</li>
   <li>Delete an account</li>
   <li>Update account password</li>
