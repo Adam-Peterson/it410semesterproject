@@ -5,4 +5,5 @@ This project is designed to allow users to create a budget, upload purchases, an
 
 For more information, please see Domain Driven Design Document below.
 
-https://github.com/Adam-Peterson/it410semesterproject/blob/main/ddd.md
+<a href="https://github.com/Adam-Peterson/it410semesterproject/blob/main/ddd.md">Domain Driven Design Document</a>
+
