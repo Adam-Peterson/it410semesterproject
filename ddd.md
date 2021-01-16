@@ -150,7 +150,7 @@
     </tr>
     <tr>
       <td>Date</td>
-      <td>Date</td>
+      <td>date</td>
       <td>Date of the transaction</td>
     </tr>
     <tr>
