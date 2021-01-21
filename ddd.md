@@ -53,12 +53,12 @@
   <li>Reassign transaction to different cateogry</li>
   <li>Delete transaction</li>
     <li>View Transactions</li>
-    
-  ## Miscellaneous Commands
+  </ul>
 
+  # Define Queries
+  <ul>
   <li>Check balance remaining</li>
-</ul>
-
+  </ul>
 
 # Define Entities
 
