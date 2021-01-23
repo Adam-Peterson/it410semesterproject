@@ -7,12 +7,19 @@
 |:-------|:-----------------------|:------------------------|
 | POST   | `/accounts`            | Create Account       |
 | PUT    | `/accounts/{accountID}` | Update Account       |
+| PUT    | `/accounts/{accountID}` | Deactivate Account       |
 | DELETE | `/accounts/{accountID}` | Delete Account       |
 | PUT    | `/accounts/{password}`  | Reset Password       |
 
+## Sessions
+| Method | Path                   | Description             |
+|:-------|:-----------------------|:------------------------|
+| POST   | `/sessions`            | Create Session       |
+| PUT   | `/sessions/{sessionID}` | Renew Session       |
+| DELETE    | `/sessions/{sessionID}` | Delete Session       |
 
 
-## Categories
+## Budget Categories
 | Method | Path                   | Description             |
 |:-------|:-----------------------|:------------------------|
 | POST   | `/accounts/{accountID}/categories`          | Create Category       |
@@ -28,6 +35,6 @@
 | POST   | `/categories/{categoryID}/transactions/`          | Create Transaction       |
 | PUT    | `/transactions/{transactionID}`| Update Transaction       |
 | DELETE | `/transactions/{transactionID}` | Delete Transaction       |
-| DELETE | `/transactions` | Delete All Transaction       |
+| DELETE | `/transactions` | Delete All Transactions       |
 | GET    | `/transactions`  | List All Transactions       |
 | GET    | `/transactions/{transactionID}`  | List a Specific Transactions       |
