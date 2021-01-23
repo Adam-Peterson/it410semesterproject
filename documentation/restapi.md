@@ -22,8 +22,9 @@
 ## Budget Categories
 | Method | Path                   | Description             |
 |:-------|:-----------------------|:------------------------|
-| POST   | `/accounts/{accountID}/categories`          | Create Category       |
-| PUT    | `/categories/{categoryID}`| Update Category       |
+| POST   | `/accounts/{accountID}/categories/{categoryTitle}/{categoryBudgetGoal}`          | Create Category       |
+| PUT    | `/categories/{categoryID}/{categoryTitle}`| Update Category Title      |
+| PUT    | `/categories/{categoryID}/{categoryBudgetGoal}`| Update Category Budget Goal      |
 | DELETE | `/categories/{categoryID}` | Delete Category       |
 | DELETE | `/categories` | Delete All Categories       |
 | GET    | `/categories`  | List All Categories       |
@@ -32,7 +33,7 @@
 ## Transactions
 | Method | Path                   | Description             |
 |:-------|:-----------------------|:------------------------|
-| POST   | `/categories/{categoryID}/transactions/`          | Create Transaction       |
+| POST   | `/categories/{categoryID}/transactions/{transactionTitle}/{transactionAmount}`          | Create Transaction       |
 | PUT    | `/transactions/{transactionID}`| Update Transaction       |
 | DELETE | `/transactions/{transactionID}` | Delete Transaction       |
 | DELETE | `/transactions` | Delete All Transactions       |
