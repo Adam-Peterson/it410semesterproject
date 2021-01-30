@@ -1,0 +1,507 @@
+swagger: "2.0"
+info:
+  description: "This is an OpenAPI Documentation for a custom budgeting web application allowing for the creation of accounts, categories, transactions."
+  version: "1.0.0"
+  title: "IT410 Semester Project: Budget"
+  termsOfService: ""
+  contact:
+    email: "adpete44@gmail.com"
+  license:
+    name: "Apache 2.0"
+    url: "http://www.apache.org/licenses/LICENSE-2.0.html"
+tags:
+- name: "account"
+  description: "Account creation, updating, and deletion"
+- name: "category"
+  description: "Category creation, updating, and deletion"
+- name: "transaction"
+  description: "Transaction creation, updating, and deletion"
+schemes:
+- "https"
+- "http"
+paths:
+  /account:
+    post:
+      tags:
+      - "account"
+      summary: "Create new Account"
+      description: ""
+      operationId: "addaccount"
+      consumes:
+      - "application/json"
+      - "application/xml"
+      produces:
+      - "application/xml"
+      - "application/json"
+      parameters:
+      - in: "body"
+        name: "body"
+        description: "account object that needs to be created"
+        required: true
+        schema:
+          $ref: "#/definitions/account"
+      responses:
+        "405":
+          description: "Invalid input"
+      security:
+      - accountcategory_auth:
+        - "write:accounts"
+        - "read:accounts"
+  /account/{accountId}:
+    get:
+      tags:
+      - "account"
+      summary: "Find account by ID"
+      description: "Returns a single account"
+      operationId: "getaccountById"
+      produces:
+      - "application/xml"
+      - "application/json"
+      parameters:
+      - name: "accountId"
+        in: "path"
+        description: "ID of account to return"
+        required: true
+        type: "integer"
+        format: "int64"
+      responses:
+        "200":
+          description: "successful operation"
+          schema:
+            $ref: "#/definitions/account"
+        "400":
+          description: "Invalid ID supplied"
+        "404":
+          description: "account not found"
+      security:
+      - api_key: []
+    put:
+      tags:
+      - "account"
+      summary: "Updates an account"
+      description: ""
+      operationId: "updateaccount"
+      consumes:
+      - "application/x-www-form-urlencoded"
+      produces:
+      - "application/xml"
+      - "application/json"
+      parameters:
+      - name: "accountId"
+        in: "path"
+        description: "ID of account that needs to be updated"
+        required: true
+        type: "integer"
+        format: "int64"
+      - name: "name"
+        in: "formData"
+        description: "Updated name of the account"
+        required: false
+        type: "string"
+      - name: "status"
+        in: "formData"
+        description: "Updated status of the account"
+        required: false
+        type: "string"
+      - name: "password"
+        in: "formData"
+        description: "Updated account password"
+        required: false
+        type: "string"
+      responses:
+        "405":
+          description: "Invalid input"
+      security:
+      - accountcategory_auth:
+        - "write:accounts"
+        - "read:accounts"
+    delete:
+      tags:
+      - "account"
+      summary: "Deletes a account"
+      description: ""
+      operationId: "deleteaccount"
+      produces:
+      - "application/xml"
+      - "application/json"
+      parameters:
+      - name: "accountId"
+        in: "path"
+        description: "account id to delete"
+        required: true
+        type: "integer"
+        format: "int64"
+      responses:
+        "400":
+          description: "Invalid ID supplied"
+        "404":
+          description: "Account not found"
+      security:
+      - accountcategory_auth:
+        - "write:accounts"
+        - "read:accounts"
+        
+  /category:
+    get:
+      tags:
+      - "category"
+      summary: "Returns All Categories"
+      description: "Returns all categories associated with an account"
+      operationId: "getAllCategories"
+      produces:
+      - "application/json"
+      parameters: []
+      responses:
+        "200":
+          description: "successful operation"
+          schema:
+            $ref: "#/definitions/category"
+        "404":
+          description: "No categories to display"
+      security:
+      - api_key: []
+      
+      
+    post:
+      tags:
+      - "category"
+      summary: "Create Category"
+      description: ""
+      operationId: "addCategory"
+      produces:
+      - "application/xml"
+      - "application/json"
+      parameters:
+      - in: "body"
+        name: "body"
+        description: "Create new category for the associated account"
+        required: true
+        schema:
+          $ref: "#/definitions/category"
+      responses:
+        "200":
+          description: "successful operation"
+          schema:
+            $ref: "#/definitions/category"
+        "400":
+          description: "Invalid category"
+    delete:
+      tags:
+      - "category"
+      summary: "Delete all categories for associated account"
+      description: ""
+      operationId: "deleteAllCategories"
+      produces:
+      - "application/xml"
+      - "application/json"
+      parameters: []
+      responses:
+        "404":
+          description: "Account not found"
+      security:
+      - accountcategory_auth:
+        - "write:accounts"
+        - "read:accounts"
+      
+    
+  /category/{categoryID}:
+    get:
+      tags:
+      - "category"
+      summary: "Returns Category by Category ID"
+      description: "Returns a map of status codes to quantities"
+      operationId: "getCategoryByCategoryID"
+      produces:
+      - "application/json"
+      parameters: 
+      - name: "categoryID"
+        in: "path"
+        description: "ID of category to return"
+        required: true
+        type: "integer"
+        format: "int64"
+      responses:
+        "200":
+          description: "successful operation"
+          schema:
+            $ref: "#/definitions/category"
+        "400":
+          description: "Invalid ID supplied"
+        "404":
+          description: "category not found"
+      security:
+      - api_key: []
+    
+    
+    delete:
+      tags:
+      - "category"
+      summary: "Delete Category By Category ID"
+      description: ""
+      operationId: "deleteCategoryByCategoryID"
+      produces:
+      - "application/xml"
+      - "application/json"
+      parameters: 
+      - name: "categoryID"
+        in: "path"
+        description: "ID of category to return"
+        required: true
+        type: "integer"
+        format: "int64"
+      responses:
+        "404":
+          description: "Category not found"
+      security:
+      - accountcategory_auth:
+        - "write:accounts"
+        - "read:accounts"
+        
+    
+    put:
+      tags:
+      - "category"
+      summary: "Updates a Category"
+      description: ""
+      operationId: "updatecategory"
+      consumes:
+      - "application/x-www-form-urlencoded"
+      produces:
+      - "application/xml"
+      - "application/json"
+      parameters:
+      - name: "categoryID"
+        in: "path"
+        description: "ID of category that needs to be updated"
+        required: true
+        type: "integer"
+        format: "int64"
+      - name: "name"
+        in: "formData"
+        description: "Updated name of the category"
+        required: false
+        type: "string"
+      - name: "status"
+        in: "formData"
+        description: "Updated status of the category (active or innactive)"
+        required: false
+        type: "string"
+      - name: "password"
+        in: "formData"
+        description: "Updated category budget goal"
+        required: false
+        type: "integer"
+        format: "int64"
+      responses:
+        "405":
+          description: "Invalid input"
+      security:
+      - accountcategory_auth:
+        - "write:accounts"
+        - "read:accounts"
+  /transaction:
+    get:
+      tags:
+      - "transaction"
+      summary: "Returns All Transactions"
+      description: "Returns all transactions associated with a category"
+      operationId: "getAllTransactions"
+      produces:
+      - "application/json"
+      parameters: []
+      responses:
+        "200":
+          description: "successful operation"
+          schema:
+            $ref: "#/definitions/category"
+        "404":
+          description: "No transactions to display"
+      security:
+      - api_key: []
+    post:
+      tags:
+      - "transaction"
+      summary: "Create transaction"
+      description: "Create transaction associated with a budget category"
+      operationId: "createtransaction"
+      produces:
+      - "application/xml"
+      - "application/json"
+      parameters:
+      - in: "body"
+        name: "body"
+        description: "Created transaction object"
+        required: true
+        schema:
+          $ref: "#/definitions/transaction"
+      responses:
+        default:
+          description: "successful operation"
+    delete:
+      tags:
+      - "transaction"
+      summary: "Delete all transactions for associated category"
+      description: ""
+      operationId: "deleteAllTransactions"
+      produces:
+      - "application/xml"
+      - "application/json"
+      parameters: []
+      responses:
+        "404":
+          description: "Transaction not found"
+      security:
+      - accountcategory_auth:
+        - "write:accounts"
+        - "read:accounts"
+          
+  /transaction/{transactionID}:
+    delete:
+      tags:
+      - "transaction"
+      summary: "Delete Transaction By Transaction ID"
+      description: ""
+      operationId: "deleteTransactionByTransactionID"
+      produces:
+      - "application/xml"
+      - "application/json"
+      parameters: 
+      - name: "transactionID"
+        in: "path"
+        description: "ID of Transaction to Delete"
+        required: true
+        type: "integer"
+        format: "int64"
+      responses:
+        "404":
+          description: "Transaction not found"
+      security:
+      - accountcategory_auth:
+        - "write:accounts"
+        - "read:accounts"
+        
+    
+    put:
+      tags:
+      - "transaction"
+      summary: "Updates a Transaction"
+      description: ""
+      operationId: "updateTransaction"
+      consumes:
+      - "application/x-www-form-urlencoded"
+      produces:
+      - "application/xml"
+      - "application/json"
+      parameters:
+      - name: "transactionID"
+        in: "path"
+        description: "ID of Transaction that needs to be updated"
+        required: true
+        type: "integer"
+        format: "int64"
+      - name: "Title"
+        in: "formData"
+        description: "Updated Title of the Transaction"
+        required: false
+        type: "string"
+      - name: "status"
+        in: "formData"
+        description: "Updated status of the Transaction (void or not void)"
+        required: false
+        type: "string"
+      - name: "password"
+        in: "formData"
+        description: "Updated Transaction Amount"
+        required: false
+        type: "integer"
+        format: "int64"
+      - name: "Date"
+        in: "formData"
+        description: "Updated Transaction Date"
+        required: false
+        type: "string"
+        format: "date"
+      responses:
+        "405":
+          description: "Invalid input"
+      security:
+      - accountcategory_auth:
+        - "write:accounts"
+        - "read:accounts"
+
+securityDefinitions:
+  accountcategory_auth:
+    type: "oauth2"
+    authorizationUrl: "http://accountcategory.swagger.io/oauth/dialog"
+    flow: "implicit"
+    scopes:
+      write:accounts: "modify accounts in your account"
+      read:accounts: "read your accounts"
+  api_key:
+    type: "apiKey"
+    name: "api_key"
+    in: "header"
+definitions:
+  account:
+    type: "object"
+    required:
+    - "name"
+    properties:
+      id:
+        type: "integer"
+        format: "int64"
+      category:
+        $ref: "#/definitions/category"
+      name:
+        type: "string"
+        example: "Adam Peterson"
+      status:
+        type: "string"
+        description: "account status in the category"
+        enum:
+        - "Active"
+        - "Deactivated"
+    xml:
+      name: "account"
+  category:
+    type: "object"
+    properties:
+      id:
+        type: "integer"
+        format: "int64"
+      transaction:
+        $ref: "#/definitions/transaction"
+      name:
+        type: "string"
+      goal:
+        type: "integer"
+        format: "int64"
+      status:
+        type: "string"
+        description: "Category status"
+        enum:
+        - "Active"
+        - "Deactivated"
+    xml:
+      name: "Category"
+  transaction:
+    type: "object"
+    properties:
+      id:
+        type: "integer"
+        format: "int64"
+      transactionname:
+        type: "string"
+      transactionAmount:
+        type: "string"
+      Status:
+        type: "string"
+        description: "Transaction status"
+        enum:
+        - "Void"
+        - "Not Void"
+    xml:
+      name: "transaction"
+externalDocs:
+  description: "Find out more about Swagger"
+  url: "http://swagger.io"
