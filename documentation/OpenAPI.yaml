@@ -43,10 +43,7 @@ paths:
       responses:
         "405":
           description: "Invalid input"
-      security:
-      - accountcategory_auth:
-        - "write:accounts"
-        - "read:accounts"
+      security: []
   /account/{accountId}:
     get:
       tags:
@@ -74,7 +71,9 @@ paths:
         "404":
           description: "account not found"
       security:
-      - api_key: []
+      - accountcategory_auth:
+        - "write:accounts"
+        - "read:accounts"      
     put:
       tags:
       - "account"
@@ -159,8 +158,9 @@ paths:
         "404":
           description: "No categories to display"
       security:
-      - api_key: []
-      
+      - accountcategory_auth:
+        - "write:accounts"
+        - "read:accounts"      
       
     post:
       tags:
@@ -185,6 +185,10 @@ paths:
             $ref: "#/definitions/category"
         "400":
           description: "Invalid category"
+      security:
+      - accountcategory_auth:
+        - "write:accounts"
+        - "read:accounts"
     delete:
       tags:
       - "category"
@@ -230,7 +234,9 @@ paths:
         "404":
           description: "category not found"
       security:
-      - api_key: []
+      - accountcategory_auth:
+        - "write:accounts"
+        - "read:accounts"
     
     
     delete:
@@ -337,6 +343,10 @@ paths:
       responses:
         default:
           description: "successful operation"
+      security:
+      - accountcategory_auth:
+        - "write:accounts"
+        - "read:accounts"
     delete:
       tags:
       - "transaction"
