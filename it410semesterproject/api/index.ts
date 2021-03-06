@@ -23,7 +23,7 @@ app.use(enforcerMiddleware.init())
 
 // Catch errors
 enforcerMiddleware.on('error', (err: Error) => {
-  console.error(err)
+  console.error(err.stack)
   // process.exit(1)
 }) 
 
